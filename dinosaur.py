@@ -6,5 +6,5 @@ class Dinosaur:
         self.attack_power = attack_power
         self.health = 10
 
-    def attack(self, robot):
+    def attack(self, robot): # robot.health - self.attack_power and use print to fill in the user as to what happend
         pass
