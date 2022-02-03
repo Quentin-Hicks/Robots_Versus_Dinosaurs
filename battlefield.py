@@ -30,3 +30,10 @@ class Battlefield:
         def display_winners(self):
             pass
 
+fleet_one = Fleet()
+herd_one = Herd()
+
+fleet_one.create_fleet()
+herd_one.create_herd()
+
+fleet_one.attack(herd_one.list[1])
