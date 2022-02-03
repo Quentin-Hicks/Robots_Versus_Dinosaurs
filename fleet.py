@@ -11,4 +11,6 @@ class Fleet:
         robot_two = Robot('Raging Bender')
         robot_three = Robot('Big O')
 
-        self.list = self.list.append(robot_one)
+        self.list.append(robot_one)
+        self.list.append(robot_two)
+        self.list.append(robot_three)
