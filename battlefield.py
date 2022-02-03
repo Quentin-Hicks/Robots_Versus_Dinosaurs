@@ -36,4 +36,4 @@ herd_one = Herd()
 fleet_one.create_fleet()
 herd_one.create_herd()
 
-fleet_one.attack(herd_one.list[1])
+fleet_one.list[1].attack(herd_one.list[0])
