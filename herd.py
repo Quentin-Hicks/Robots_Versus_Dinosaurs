@@ -1,3 +1,4 @@
+from dinosaur import Dinosaur
 
 class Herd:
 
