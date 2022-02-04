@@ -4,6 +4,7 @@ class Herd:
 
     def __init__(self):
         self.list = []
+        self.create_herd()
 
     def create_herd(self):
         dino_one = Dinosaur('Ripper', 2)

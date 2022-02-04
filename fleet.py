@@ -4,6 +4,7 @@ class Fleet:
 
     def __init__(self):
         self.list = []
+        self.create_fleet()
 
     def create_fleet(self): # on battlefield we need to instanciate our fleet then call create_fleet method to assemble our 3 robots, same for dino
         # make 3 and append them to the list
