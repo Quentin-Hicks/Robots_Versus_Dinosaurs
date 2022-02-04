@@ -1,6 +1,9 @@
+from dinosaur import Dinosaur
 from fleet import Fleet
 from herd import Herd
 import random
+
+from robot import Robot
 
 class Battlefield:
 
@@ -18,9 +21,13 @@ class Battlefield:
         print('*' * 35)
 
     def battle(self): # while the list length of robot and dino is greater than 0: loop through a dino and robot turn. call robo_turn and dino_turn here after successful testing
-        while len(self.fleet.list) - 1 > 0 or len(self.herd.list) - 1 > 0:
-            self.robo_turn()
-            self.dino_turn()
+        while len(self.fleet.list) > 0 or len(self.herd.list) > 0:
+
+            if self.fleet.list[0] in self.fleet.list:
+                self.robo_turn()
+
+            if self.fleet.list[0] in self.herd.list:
+                self.dino_turn()
 
         self.display_winners()
 
@@ -73,8 +80,8 @@ class Battlefield:
             index += 1
 
     def display_winners(self):
-        pass # if condition to check which team's list is greater than zero
-        if len(self.fleet.list) > 0:
-            print('Robots Win')
-        else:
+        # if condition to check which team's list is greater than zero
+        if len(self.fleet.list) < 0:
             print('Dinosaurs Win')
+        else:
+            print('Robots Win')
