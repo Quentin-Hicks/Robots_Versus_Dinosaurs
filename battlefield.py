@@ -26,14 +26,14 @@ class Battlefield:
         self.show_dino_attack_options()
         dino_user_choice = int(input())
 
-        self.herd.list[dino_user_choice].attack(self.fleet.list[0])
+        self.herd.list[dino_user_choice].attack(self.fleet.list[random.randint(0, len(self.fleet.list) - 1)])
 
     def robo_turn(self):
         print("Choose a robot to attack with")
         self.show_robo_attack_options()
         robot_user_choice = int(input())
 
-        self.fleet.list[robot_user_choice].attack(self.herd.list[0])
+        self.fleet.list[robot_user_choice].attack(self.herd.list[random.randint(0, len(self.herd.list) - 1)])
 
     def show_dino_attack_options(self):
         index = 0
