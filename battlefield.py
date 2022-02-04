@@ -13,7 +13,9 @@ class Battlefield:
 
     def run_game(self):
         # only call display_welcome, battle, and display_winner here
-        pass
+        self.display_welcome()
+        self.battle()
+        self.display_winners()
 
     def display_welcome(self):
         # create a welcome to the thunderdome message
@@ -21,15 +23,13 @@ class Battlefield:
         print('*' * 35)
 
     def battle(self): # while the list length of robot and dino is greater than 0: loop through a dino and robot turn. call robo_turn and dino_turn here after successful testing
-        while len(self.fleet.list) > 0 or len(self.herd.list) > 0:
+        while len(self.fleet.list) > 0 and len(self.herd.list) > 0:
 
-            if self.fleet.list[0] in self.fleet.list:
+            if len(self.fleet.list) > 0:
                 self.robo_turn()
 
-            if self.fleet.list[0] in self.herd.list:
+            if len(self.herd.list) > 0:
                 self.dino_turn()
-
-        self.display_winners()
 
     def dino_turn(self): # using random but need to rememeber to use really good print statments to explain to the user what is happening in the dino turn.
         print('*' * 35)
@@ -81,7 +81,7 @@ class Battlefield:
 
     def display_winners(self):
         # if condition to check which team's list is greater than zero
-        if len(self.fleet.list) < 0:
-            print('Dinosaurs Win')
+        if len(self.fleet.list) > 0:
+            print('Robos Win')
         else:
-            print('Robots Win')
+            print('Dinos Win')
