@@ -12,4 +12,3 @@ class Robot:
         print(f"{self.name} dealt {self.weapon.attack_power} damage to {dinosaur.name}.")
         print(f"{dinosaur.name} has {dinosaur.health} health points left.")
 
-        

@@ -21,9 +21,10 @@ class Battlefield:
         print('*' * 35)
 
     def battle(self): # while the list length of robot and dino is greater than 0: loop through a dino and robot turn. call robo_turn and dino_turn here after successful testing
-        while len(self.fleet.list) - 1 and len(self.herd.list) - 1 > 0:
+        while len(self.fleet.list) - 1 > 0 or len(self.herd.list) - 1 > 0:
             self.robo_turn() # move to battle
             self.dino_turn() # move to battle
+        # self.display_winners()
 
     def dino_turn(self): # using random but need to rememeber to use really good print statments to explain to the user what is happening in the dino turn.
         print('*' * 35)
@@ -39,6 +40,9 @@ class Battlefield:
 
         self.herd.list[dino_user_choice].attack(self.fleet.list[robo_opponent])
 
+        if self.fleet.list[robo_opponent].health <= 0:
+            self.fleet.list.remove(self.fleet.list[robo_opponent])
+
     def robo_turn(self):
         print('*' * 35)
 
@@ -53,6 +57,9 @@ class Battlefield:
 
         self.fleet.list[robot_user_choice].attack(self.herd.list[dino_opponent])
 
+        if self.herd.list[dino_opponent].health <= 0:
+            self.herd.list.remove(self.herd.list[dino_opponent])
+
     def show_dino_attack_options(self):
         index = 0
         for dinosaur in self.herd.list:
@@ -64,16 +71,6 @@ class Battlefield:
         for robot in self.fleet.list:
             print(f'Press {index} to select {robot.name} ({robot.health} HP).')
             index += 1
-        if robot.health == 0:
-            self.fleet.list.remove(robot.name)
-
-        # print(self.fleet)
-        # self.fleet.list.remove(self.fleet.list[0])
-        # print(self.fleet)
 
     def display_winners(self):
-        pass
-
-# fleet_one = Fleet()
-
-# fleet_one = fleet_one.create_fleet()
+        pass # if condition to check which team's list is greater than zero
