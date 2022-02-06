@@ -39,10 +39,10 @@ class Battlefield:
         self.show_dino_attack_options()
         dino_user_choice = int(input())
 
-        print('*' * 35)
+        # print('*' * 35)
 
-        print("Who do you want to attack")
-        self.show_robo_attack_options()
+        # print("Who do you want to attack")
+        # self.show_robo_attack_options()
         robo_opponent = random.randint(0, len(self.fleet.list) - 1 )# int(input())
 
         print('*' * 35)        
@@ -61,11 +61,11 @@ class Battlefield:
         self.show_robo_attack_options()
         robot_user_choice = int(input())
 
-        print('*' * 35)
+        # print('*' * 35)
 
-        print("Who do you want to attack")
-        self.show_dino_attack_options()
-        dino_opponent = int(input())
+        # print("Who do you want to attack")
+        # self.show_dino_attack_options()
+        dino_opponent = random.randint(0, len(self.herd.list) - 1 ) #int(input())
 
         print('*' * 35)
 
