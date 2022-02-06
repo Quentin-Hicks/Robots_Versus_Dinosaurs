@@ -26,9 +26,13 @@ class Battlefield:
 
             if len(self.fleet.list) > 0:
                 self.robo_turn()
+            else:
+                print('There are no robots left.')
 
             if len(self.herd.list) > 0:
                 self.dino_turn()
+            else:
+                print('There are no dinosaurs left.')
 
     def dino_turn(self): # using random but need to rememeber to use really good print statments to explain to the user what is happening in the dino turn.
         
