@@ -43,7 +43,7 @@ class Battlefield:
 
         print("Who do you want to attack")
         self.show_robo_attack_options()
-        robo_opponent = int(input())
+        robo_opponent = random.randint(0, len(self.fleet.list) - 1 )# int(input())
 
         print('*' * 35)        
 
