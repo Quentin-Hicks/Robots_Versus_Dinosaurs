@@ -21,15 +21,13 @@ class Battlefield:
     def battle(self): # while the list length of robot and dino is greater than 0: loop through a dino and robot turn. call robo_turn and dino_turn here after successful testing
         while len(self.fleet.list) > 0 and len(self.herd.list) > 0:
 
-            if len(self.fleet.list) > 0:
-                self.robo_turn()
-            else:
-                print('All robots have 0 HP.')
-
-            if len(self.herd.list) > 0:
-                self.dino_turn()
-            else:
-                print('All dinosaurs have 0 HP left.')
+            self.robo_turn()
+            self.dino_turn()
+        
+        if len(self.fleet.list) == 0:
+            print('All robots have 0 HP.')
+        else:
+            print('All dinosaurs have 0 HP.')
 
     def dino_turn(self): # using random but need to rememeber to use really good print statments to explain to the user what is happening in the dino turn.
         
@@ -78,7 +76,7 @@ class Battlefield:
     def show_dino_attack_options(self):
         index = 0
         for dinosaur in self.herd.list:
-            print(f'Press {index} to select {dinosaur.name} ({dinosaur.health} HP, {dinosaur.attack_power} Str).')
+            print(f'Press {index} to select {dinosaur.name} ({dinosaur.health} HP, {dinosaur.attack_power} Str, {dinosaur.energy} Energy).')
             index += 1
 
     def show_robo_attack_options(self):
