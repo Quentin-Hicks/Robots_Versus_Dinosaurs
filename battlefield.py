@@ -1,7 +1,5 @@
-#from dinosaur import Dinosaur
 from fleet import Fleet
 from herd import Herd
-from robot import Robot
 import random
 
 class Battlefield:
@@ -80,13 +78,13 @@ class Battlefield:
     def show_dino_attack_options(self):
         index = 0
         for dinosaur in self.herd.list:
-            print(f'Press {index} to select {dinosaur.name} ({dinosaur.health} HP).')
+            print(f'Press {index} to select {dinosaur.name} ({dinosaur.health} HP, {dinosaur.attack_power} Str).')
             index += 1
 
     def show_robo_attack_options(self):
         index = 0
         for robot in self.fleet.list:
-            print(f'Press {index} to select {robot.name} ({robot.health} HP).')
+            print(f'Press {index} to select {robot.name} ({robot.health} HP, {robot.battle_weapon.name}).')
             index += 1
 
     def display_winners(self):
