@@ -1,4 +1,4 @@
-from dinosaur import Dinosaur
+#from dinosaur import Dinosaur
 from fleet import Fleet
 from herd import Herd
 import random
@@ -49,6 +49,7 @@ class Battlefield:
         self.herd.list[dino_user_choice].attack(self.fleet.list[robo_opponent])
 
         if self.fleet.list[robo_opponent].health <= 0:
+            print(f"{self.fleet.list[robo_opponent].name} is defeated and can no longer battle.")
             self.fleet.list.remove(self.fleet.list[robo_opponent])
 
     def robo_turn(self):
@@ -70,6 +71,7 @@ class Battlefield:
         self.fleet.list[robot_user_choice].attack(self.herd.list[dino_opponent])
 
         if self.herd.list[dino_opponent].health <= 0:
+            print(f"{self.herd.list[dino_opponent].name} is defeated and can no longer battle.")
             self.herd.list.remove(self.herd.list[dino_opponent])
 
     def show_dino_attack_options(self):
