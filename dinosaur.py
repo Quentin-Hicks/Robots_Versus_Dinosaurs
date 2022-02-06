@@ -11,4 +11,4 @@ class Dinosaur:
 
         print(f"{self.name} dealt {self.attack_power} damage to {robot.name}.")
 
-        print(f"{robot.name} has {robot.health} health points left.")
+        # print(f"{robot.name} has {robot.health} health points left.")
