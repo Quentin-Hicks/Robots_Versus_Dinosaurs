@@ -7,7 +7,7 @@ class Dinosaur:
         self.health = 50
         self.energy = 50
 
-    def attack(self, robot): # robot.health - self.attack_power and use print to fill in the user as to what happend
+    def attack(self, robot):
         robot.health -= self.attack_power
 
         print(f"{self.name} dealt {self.attack_power} damage to {robot.name}.")
