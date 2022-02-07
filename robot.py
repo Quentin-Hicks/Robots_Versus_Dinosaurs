@@ -4,22 +4,25 @@ class Robot:
 
     def __init__(self, name):
         self.name = name
-        self.health = 10
+        self.health = 50
         self.weapon_list = []
         self.weapons()
         self.weapon_choice()
         self.battle_weapon
+        self.power_level = 50
 
     def attack(self, dinosaur):
         dinosaur.health -= self.battle_weapon.attack_power
 
         print(f"{self.name} dealt {self.battle_weapon.attack_power} damage to {dinosaur.name} with {self.battle_weapon.name}.")
 
+        self.power_level -= 10
+
     def weapons(self):
 
-        weapon_one = Weapon('Laser Cannon', 3)
-        weapon_two = Weapon('Particle Gun', 2)
-        weapon_three = Weapon('Saber Sword', 1)
+        weapon_one = Weapon('Laser Cannon', 12)
+        weapon_two = Weapon('Particle Gun', 12)
+        weapon_three = Weapon('Saber Sword', 12)
 
         self.weapon_list.append(weapon_one)
         self.weapon_list.append(weapon_two)

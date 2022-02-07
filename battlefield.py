@@ -21,13 +21,15 @@ class Battlefield:
     def battle(self): # while the list length of robot and dino is greater than 0: loop through a dino and robot turn. call robo_turn and dino_turn here after successful testing
         while len(self.fleet.list) > 0 and len(self.herd.list) > 0:
 
-            self.robo_turn()
-            self.dino_turn()
-        
-        if len(self.fleet.list) == 0:
-            print('All robots have 0 HP.')
-        else:
-            print('All dinosaurs have 0 HP.')
+            if len(self.fleet.list) > 0:
+                self.robo_turn()
+            else:
+                print('All robots have 0 HP.')
+
+            if len(self.herd.list) > 0:
+                self.dino_turn()
+            else:
+                print('All dinosaurs have 0 HP left.')
 
     def dino_turn(self): # using random but need to rememeber to use really good print statments to explain to the user what is happening in the dino turn.
         
@@ -37,15 +39,18 @@ class Battlefield:
         self.show_dino_attack_options()
         dino_user_choice = int(input())
 
-        # print('*' * 35)
+        print('*' * 35)
 
-        # print("Who do you want to attack")
-        # self.show_robo_attack_options()
-        robo_opponent = random.randint(0, len(self.fleet.list) - 1 )# int(input())
+        print("Who do you want to attack")
+        self.show_robo_attack_options()
+        robo_opponent = int(input())
 
         print('*' * 35)        
 
-        self.herd.list[dino_user_choice].attack(self.fleet.list[robo_opponent])
+        if self.herd.list[dino_user_choice].energy > 0:
+            self.herd.list[dino_user_choice].attack(self.fleet.list[robo_opponent])
+        else:
+            print(f"{self.herd.list[dino_user_choice].name} has no energy and cannot attack.")
 
         if self.fleet.list[robo_opponent].health <= 0:
             print(f"{self.fleet.list[robo_opponent].name} is defeated and can no longer battle.")
@@ -59,15 +64,18 @@ class Battlefield:
         self.show_robo_attack_options()
         robot_user_choice = int(input())
 
-        # print('*' * 35)
+        print('*' * 35)
 
-        # print("Who do you want to attack")
-        # self.show_dino_attack_options()
-        dino_opponent = random.randint(0, len(self.herd.list) - 1 ) #int(input())
+        print("Who do you want to attack")
+        self.show_dino_attack_options()
+        dino_opponent = int(input())
 
         print('*' * 35)
 
-        self.fleet.list[robot_user_choice].attack(self.herd.list[dino_opponent])
+        if self.fleet.list[robot_user_choice].power_level > 0:
+            self.fleet.list[robot_user_choice].attack(self.herd.list[dino_opponent])
+        else:
+            print(f"{self.fleet.list[robot_user_choice].name} has no power and cannot attack.")
 
         if self.herd.list[dino_opponent].health <= 0:
             print(f"{self.herd.list[dino_opponent].name} is defeated and can no longer battle.")
@@ -82,7 +90,7 @@ class Battlefield:
     def show_robo_attack_options(self):
         index = 0
         for robot in self.fleet.list:
-            print(f'Press {index} to select {robot.name} ({robot.health} HP, {robot.battle_weapon.name}).')
+            print(f'Press {index} to select {robot.name} ({robot.health} HP, {robot.power_level} Power, {robot.battle_weapon.name}).')
             index += 1
 
     def display_winners(self):
